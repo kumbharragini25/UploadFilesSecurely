@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Authentication</title>
+    <meta name="description" content="">
+
+
+<style>
+    
+    .form-group {
+    margin-top: 50px;
+    margin-bottom: 80px; 
+    }
+
+    .form-control {
+    padding: 5px; 
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+   
+        .alert {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .alert-danger {
+            color: #d9534f;
+            background-color: #f2dede;
+        }
+
+        .alert-success {
+            color: #5bc0de;
+            background-color: #d9edf7;
+        }
+    
+    form {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top:50px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="email"] {
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button[type="submit"] {
+        background-color: #337ab7;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #286090;
+    }
+
+
+    button[type="button"] {
+        background-color: #337ab7;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type="button"]:hover {
+        background-color: #286090;
+    }
+
+
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    
+    .cancelbtn {
+        background-color: #ccc;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .cancelbtn:hover {
+        background-color: #999;
+    }
+
+    
+    .psw a {
+        text-decoration: none;
+    }
+
+   
+    .container {
+        text-align: center;
+    }
+      @media screen and (max-width: 400px) {
+            form {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+</head>
+<body>
+
+
+<form action="{% url 'saveQuery2' %}" method="post">
+{% csrf_token %}
+<label for="uname"><b>Registar</b></label>
+
+{{ form }}<br><br>
+<button type="submit" style="background-color:#2E7D32;">save</button>
+
+<a href="{% url 'sin' %}">
+    <button type="button" style="background-color:#2E7D32;">Sign in</button>
+</a>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Files</title>
+    <style>
+       
+        h1 {
+            text-align: center;
+        }
+
+       
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px;
+        }
+        
+        .alert-container {
+            position: absolute;
+            top: 20px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            z-index: 999; 
+            width: calc(100% - 40px); 
+            max-width: 400px;
+        }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .alert-danger {
+            color: #d9534f;
+            background-color: #f2dede;
+        }
+
+        .alert-success {
+            color: #5bc0de;
+            background-color: #d9edf7;
+        }
+
+        
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        
+        .file-link {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        
+        .file-link:hover {
+            background-color: #0056b3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h1>Your Uploaded Files</h1>
+    <ul>
+        {% for document in uploaded_documents %}
+            <li>
+                <span>{{ forloop.counter }}. {{ document.name }}</span>
+                <a href="{% url 'edit_document' document.id %}" class="file-link">Edit</a>
+                <a href="{% url 'delete_document' document.id %}" class="file-link">Delete</a>
+                <a href="{% url 'download_document' document.id %}" class="file-link">Download</a>
+                <a href="{% url 'show' document.id %}" class="file-link">Give user access</a>
+                <a href="{% url 'show_group' document.id %}" class="file-link">Create Group for Access</a>
+            </li>
+            
+        {% endfor %}
+        <a href="{% url 'all' %}" class="file-link">View All Document</a>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Permissions to Group</title>
+</head>
+<body>
+    <h2>Assign Permissions to Group</h2>
+    <form action="{% url 'check_document_access' %}" method="post">
+        {% csrf_token %}
+        <label for="edit_permission">
+            <input type="checkbox" id="edit_permission" name="edit_permission" value="edit">
+            Edit
+        </label><br>
+        <label for="delete_permission">
+            <input type="checkbox" id="delete_permission" name="delete_permission" value="delete">
+            Delete
+        </label><br>
+        <label for="download_permission">
+            <input type="checkbox" id="download_permission" name="download_permission" value="download">
+            Download
+        </label><br>
+        <button type="submit">Assign Permissions</button>
+    </form>
+</body>
+</html>

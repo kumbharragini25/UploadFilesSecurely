@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #337ab7;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #286090;
+        }
+
+        #message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        #message.success {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+            color: #3c763d;
+        }
+
+        #message.error {
+            background-color: #f2dede;
+            border-color: #ebccd1;
+            color: #a94442;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Document</h1>
+        <iframe src="{{ document.file.url }}" width="100%" height="800"></iframe>
+        <div class="buttons">
+            <button onclick="saveChanges()">Save Changes</button>
+            <button onclick="cancel()">Cancel</button>
+        </div>
+        <div id="message"></div>
+    </div>
+    <script>
+        function saveChanges() {
+            // Add logic to save changes here
+            // Display success or error message accordingly
+            var message = document.getElementById('message');
+            message.innerHTML = 'Changes saved successfully';
+            message.className = 'success';
+        }
+
+        function cancel() {
+            // Add logic to cancel editing here
+            var message = document.getElementById('message');
+            message.innerHTML = 'Editing canceled';
+            message.className = 'error';
+        }
+    </script>
+</body>
+</html>
